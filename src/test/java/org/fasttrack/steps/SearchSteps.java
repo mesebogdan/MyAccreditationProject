@@ -7,6 +7,7 @@ public class SearchSteps extends BaseSteps{
 
     @Step
     public void searchForKeyword(String keyword){
+        homePage.clickSearchIcon();
         homePage.setSearchField(keyword);
         homePage.clickSearchButton();
     }

@@ -4,22 +4,22 @@ import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 
-public class LoginPage extends PageObject {
+public class LoginPage extends BasePage {
 
-    @FindBy(id = "email")
-    private WebElementFacade emailField;
+    @FindBy(id = "username")
+    private WebElementFacade userField;
 
-    @FindBy(id = "pass")
+    @FindBy(id = "password")
     private WebElementFacade passwordField;
 
-    @FindBy(id = "send2")
+    @FindBy(css = "[name='login']")
     private WebElementFacade loginButton;
 
-    @FindBy(css = ".error-msg span")
+    @FindBy(css = ".woocommerce-error")
     private WebElementFacade errorMessageElement;
 
     public void setEmailField(String value) {
-        typeInto(emailField, value);
+        typeInto(userField, value);
     }
 
     public void setPasswordField(String value) {

@@ -6,27 +6,25 @@ import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
 
-@DefaultUrl("http://testfasttrackit.info/selenium-test/")
-public class HomePage extends PageObject {
+@DefaultUrl("http://qa4.fasttrackit.org:8008/")
+public class HomePage extends BasePage {
 
-    @FindBy(css = ".skip-account .label")
-    private WebElementFacade accountLink;
+    @FindBy(id = "menu-item-122")
+    private WebElementFacade myAccountLink;
 
-    @FindBy(css = "a[title='Log In']")
-    private WebElementFacade loginLink;
-
-    @FindBy( id = "search")
+    @FindBy(css = ".header-search")
+    private WebElementFacade searchIcon;
+    @FindBy(css = ".header-search-open .search-field")
     private WebElementFacade searchField;
 
-    @FindBy(css = ".search-button")
+    @FindBy(css = ".header-search [type='submit']")
     private WebElementFacade searchButton;
 
     public void clickAccountLink() {
-        clickOn(accountLink);
+        clickOn(myAccountLink);
     }
-
-    public void clickLoginLink() {
-        clickOn(loginLink);
+    public void clickSearchIcon(){
+        clickOn(searchIcon);
     }
 
     public void setSearchField(String value){

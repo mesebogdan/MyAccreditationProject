@@ -13,7 +13,6 @@ public class LoginSteps extends BaseSteps {
     @Step
     public void navigateToLoginPage() {
         homePage.clickAccountLink();
-        homePage.clickLoginLink();
     }
 
     @Step
@@ -33,12 +32,12 @@ public class LoginSteps extends BaseSteps {
 
     @Step
     public void verifyUserIsLoggedIn(String userName) {
-        Assert.assertEquals("Hello, " + userName + "!", accountPage.getWelcomeText());
+        Assert.assertEquals(userName, accountPage.getWelcomeText());
     }
 
     @Step
-    public void verifyUserNotLoggedIn(){
-        Assert.assertEquals("Invalid login or password.",loginPage.getErrorMessage());
+    public void verifyUserNotLoggedIn(String possibleUserName){
+        Assert.assertEquals("ERROR: The password you entered for the email address " + possibleUserName + " is incorrect. Lost your password?",loginPage.getErrorMessage());
     }
 
     @Step

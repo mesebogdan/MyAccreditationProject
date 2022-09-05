@@ -1,6 +1,9 @@
 package org.fasttrack.features;
 
+import org.fasttrack.utils.Constants;
 import org.junit.Test;
+
+import java.lang.invoke.ConstantCallSite;
 
 public class LoginTest extends BaseTest{
 
@@ -8,19 +11,19 @@ public class LoginTest extends BaseTest{
     @Test
     public void loginWithValidCredentialsTest() {
         loginSteps.navigateToLoginPage();
-        loginSteps.setUserEmail("cosmin@fasttrackit.org");
-        loginSteps.setPassword("123456");
+        loginSteps.setUserEmail(Constants.USER_EMAIL);
+        loginSteps.setPassword(Constants.USER_PASS);
         loginSteps.clickLogin();
-        loginSteps.verifyUserIsLoggedIn("Cosmin Fas");
+        loginSteps.verifyUserIsLoggedIn("mesebogdan");
     }
 
     @Test
     public void loginWithInvalidPasswordTest(){
         loginSteps.navigateToLoginPage();
-        loginSteps.setUserEmail("cosmin@fasttrackit.org");
-        loginSteps.setPassword("12345a");
+        loginSteps.setUserEmail("mesebogdan@yahoo.com");
+        loginSteps.setPassword("Blabla");
         loginSteps.clickLogin();
-        loginSteps.verifyUserNotLoggedIn();
+        loginSteps.verifyUserNotLoggedIn("mesebogdan@yahoo.com");
     }
 
 

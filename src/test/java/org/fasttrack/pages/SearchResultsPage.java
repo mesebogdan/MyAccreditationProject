@@ -6,9 +6,9 @@ import net.serenitybdd.core.pages.WebElementFacade;
 
 import java.util.List;
 
-public class SearchResultsPage extends PageObject {
+public class SearchResultsPage extends BasePage {
 
-    @FindBy(css = ".category-products .item .product-name a")
+    @FindBy(css = ".product_cat-tshirts-clothing .woocommerce-loop-product__title")
     private List<WebElementFacade> listOfProductNames;
 
     public boolean findProductInGridAndOpen(String productName){

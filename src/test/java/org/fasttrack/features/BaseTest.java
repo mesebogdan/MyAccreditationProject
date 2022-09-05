@@ -29,6 +29,6 @@ public class BaseTest {
     @Before
     public void init(){
         driver.manage().window().maximize();
-        driver.get("http://testfasttrackit.info/selenium-test");
+        driver.get("http://qa4.fasttrackit.org:8008/");
     }
 }
