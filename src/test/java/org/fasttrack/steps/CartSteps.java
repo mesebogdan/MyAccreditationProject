@@ -14,6 +14,7 @@ public class CartSteps extends BaseSteps{
     public void checkSuccessMessage(String productName){
         Assert.assertEquals(("\"" + productName + "\"" + " has been added to your cart.").toLowerCase(), productPage.getWelcomeAddToCartText().toLowerCase());
     }
+
     @Step
     public void checkSubtotalPrice(){
         Assert.assertTrue(cartPage.checkIfSubtotalMatches());

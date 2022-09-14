@@ -15,13 +15,14 @@ public class CartPage extends BasePage {
 
     @FindBy(css = ".cart-subtotal .amount")
     private WebElementFacade subtotalCartPrice;
-    //aici am ramas sa mai caut selectori, de aici in jos
 
-    @FindBy(css = "tbody tr:last-child .a-right .price")
-    private WebElementFacade taxPrice;
+    @FindBy(css = ".shipping .amount")
+    private WebElementFacade shippingTax;
 
-    @FindBy(css = "tfoot .price")
+    @FindBy(css = ".order-total .amount")
     private WebElementFacade totalCartPrice;
+    @FindBy(css = ".checkout-button")
+    private WebElementFacade checkoutButton;
 
     public String getSuccessMessage(){
         return successMessage.getText();
@@ -40,10 +41,13 @@ public class CartPage extends BasePage {
     }
     public boolean checkIfTotalPriceMatches(){
         int subtotal = getProductsSubtotal();
-        int fee = convertStringToInteger(taxPrice.getText());
+        int fee = convertStringToInteger(shippingTax.getText());
         int expectedTotal = subtotal + fee;
         int actualTotal = convertStringToInteger(totalCartPrice.getText());
         return expectedTotal == actualTotal;
+    }
+    public void clickCheckoutButton(){
+        clickOn(checkoutButton);
     }
 
 

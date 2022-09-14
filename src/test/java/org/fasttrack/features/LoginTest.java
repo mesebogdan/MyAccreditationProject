@@ -21,7 +21,7 @@ public class LoginTest extends BaseTest{
     public void loginWithInvalidPasswordTest(){
         loginSteps.navigateToLoginPage();
         loginSteps.setUserEmail("mesebogdan@yahoo.com");
-        loginSteps.setPassword("Blabla");
+        loginSteps.setPassword("wrongpass");
         loginSteps.clickLogin();
         loginSteps.verifyUserNotLoggedIn("mesebogdan@yahoo.com");
     }

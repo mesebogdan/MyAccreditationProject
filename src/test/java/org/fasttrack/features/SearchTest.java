@@ -17,9 +17,9 @@ public class SearchTest extends BaseTest{
 
     @Test
     public void loginAndSearchForSecondProductNameTest(){
-        loginSteps.doLogin("cosmin@fasttrackit.org","123456");
+        loginSteps.doLogin(Constants.USER_EMAIL,Constants.USER_PASS);
         searchSteps.searchForKeyword("shirt");
-        searchSteps.findProductWithNameInListAndOpen("FRENCH CUFF COTTON TWILL OXFORD");
+        searchSteps.findProductWithNameInListAndOpen("T-SHIRT WITH LOGO");
 
     }
 }

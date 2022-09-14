@@ -14,4 +14,27 @@ public class CartTest extends BaseTest {
         cartSteps.checkSuccessMessage("new hoodie");
         //cum identific doar textul cu selector
     }
+    @Test
+    public void addToCartWithoutLogin(){
+        searchSteps.searchForKeyword("hoodie");
+        searchSteps.findProductWithNameInListAndOpen("new hoodie");
+        cartSteps.addProductToCart();
+        cartSteps.checkSuccessMessage("new hoodie");
+    }
+    @Test
+    public void checkTotalAndSubtotalTest(){
+        loginSteps.doLogin(Constants.USER_EMAIL,Constants.USER_PASS);
+        searchSteps.searchForKeyword("hoodie");
+        searchSteps.findProductWithNameInListAndOpen("new hoodie");
+        cartSteps.addProductToCart();
+        searchSteps.searchForKeyword("shirt");
+        searchSteps.findProductWithNameInListAndOpen("T-SHIRT WITH LOGO");
+        cartSteps.addProductToCart();
+        checkoutSteps.clickCartButton();
+        cartSteps.checkSubtotalPrice();
+        cartSteps.checkTotalPrice();
+    }
+
+
+
 }

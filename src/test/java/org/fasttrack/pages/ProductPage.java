@@ -7,8 +7,20 @@ public class ProductPage extends BasePage{
 
     @FindBy(css = ".single_add_to_cart_button")
     private WebElementFacade addToCartButton;
-    @FindBy(css = ".woocommerce-message")
+    @FindBy(css = ".woocommerce-message:not(.button .wc-forward)")
     private WebElementFacade welcomeAddToCartText;
+    @FindBy(css = ".star-5")
+    private WebElementFacade fiveStarReview;
+    @FindBy(id = "comment")
+    private WebElementFacade commentField;
+    @FindBy(css = ".submit")
+    private WebElementFacade submitButton;
+    @FindBy(css = ".woocommerce-review__awaiting-approval")
+    private WebElementFacade succesSentReview;
+    @FindBy(id = "author")
+    private WebElementFacade reviewNameRequestField;
+    @FindBy(id = "email")
+    private WebElementFacade reviewEmailRequestField;
 
 
 
@@ -19,4 +31,23 @@ public class ProductPage extends BasePage{
     public String getWelcomeAddToCartText(){
         return welcomeAddToCartText.getText();
     }
+    public void clickFiveStarReview(){
+        clickOn(fiveStarReview);
+    }
+    public void setCommentField(String comment){
+        typeInto(commentField, comment);
+    }
+    public void clickSubmitButton(){
+        clickOn(submitButton);
+    }
+    public String getSuccesSentReview(){
+        return succesSentReview.getText();
+    }
+    public void setReviewNameRequestField(String myName){
+        typeInto(reviewNameRequestField, myName);
+    }
+    public void setReviewEmailRequestField(String myEmail){
+        typeInto(reviewEmailRequestField, myEmail);
+    }
+
 }

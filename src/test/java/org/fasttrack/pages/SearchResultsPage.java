@@ -8,7 +8,7 @@ import java.util.List;
 
 public class SearchResultsPage extends BasePage {
 
-    @FindBy(css = ".product_cat-tshirts-clothing .woocommerce-loop-product__title")
+    @FindBy(css = ".woocommerce-LoopProduct-link h2")
     private List<WebElementFacade> listOfProductNames;
 
     public boolean findProductInGridAndOpen(String productName){
