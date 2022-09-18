@@ -12,7 +12,6 @@ public class CartTest extends BaseTest {
         searchSteps.findProductWithNameInListAndOpen("new hoodie");
         cartSteps.addProductToCart();
         cartSteps.checkSuccessMessage("new hoodie");
-        //cum identific doar textul cu selector
     }
     @Test
     public void addToCartWithoutLogin(){
@@ -20,6 +19,7 @@ public class CartTest extends BaseTest {
         searchSteps.findProductWithNameInListAndOpen("new hoodie");
         cartSteps.addProductToCart();
         cartSteps.checkSuccessMessage("new hoodie");
+
     }
     @Test
     public void checkTotalAndSubtotalTest(){
@@ -34,7 +34,39 @@ public class CartTest extends BaseTest {
         cartSteps.checkSubtotalPrice();
         cartSteps.checkTotalPrice();
     }
+    @Test
+    public void removeItemFromCartThenCheckTotalTest(){
+        searchSteps.searchForKeyword("hoodie");
+        searchSteps.findProductWithNameInListAndOpen("new hoodie");
+        cartSteps.addProductToCart();
+        checkoutSteps.clickCartButton();
+        cartSteps.removeProductFromCart();
+        cartSteps.checkRemoveMessage();
+        cartSteps.checkTotalPrice();
+    }
+    @Test
+    public void removeItemFromCartThenUndoThenCheckTotalTest() {
+        searchSteps.searchForKeyword("hoodie");
+        searchSteps.findProductWithNameInListAndOpen("new hoodie");
+        cartSteps.addProductToCart();
+        checkoutSteps.clickCartButton();
+        cartSteps.removeProductFromCart();
+        cartSteps.checkRemoveMessage();
+        cartSteps.undoItemAfterRemoved();
+        cartSteps.checkTotalPrice();
 
-
-
+    }
+    @Test
+    public void addToCartThenChangeQuantityAndUpdateTest(){
+        loginSteps.doLogin(Constants.USER_EMAIL,Constants.USER_PASS);
+        searchSteps.searchForKeyword("hoodie");
+        searchSteps.findProductWithNameInListAndOpen("new hoodie");
+        cartSteps.addProductToCart();
+        checkoutSteps.clickCartButton();
+        cartSteps.setFirstItemQuantity("7");
+        cartSteps.clickUpdateButton();
+        cartSteps.checkUpdateMessage();
+        cartSteps.checkSubtotalPrice();
+        cartSteps.checkTotalPrice();
+    }
 }

@@ -15,6 +15,8 @@ public class RegisterPage extends BasePage{
 
     @FindBy(css = ".woocommerce-error li")
     private WebElementFacade errorRegisterMessage;
+    @FindBy(css = ".woocommerce-MyAccount-content [href*='logout']")
+    private WebElementFacade succesfulRegister;
 
 
     public void setEmailField(String value){
@@ -28,6 +30,9 @@ public class RegisterPage extends BasePage{
     }
     public String getErrorRegisterMessage(){
         return errorRegisterMessage.getText();
+    }
+    public String getSuccesfulRegister(){
+        return succesfulRegister.getText();
     }
 
 

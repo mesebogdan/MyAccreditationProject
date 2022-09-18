@@ -7,7 +7,7 @@ public class ProductPage extends BasePage{
 
     @FindBy(css = ".single_add_to_cart_button")
     private WebElementFacade addToCartButton;
-    @FindBy(css = ".woocommerce-message:not(.button .wc-forward)")
+    @FindBy(css = ".woocommerce-message :not(href)")
     private WebElementFacade welcomeAddToCartText;
     @FindBy(css = ".star-5")
     private WebElementFacade fiveStarReview;

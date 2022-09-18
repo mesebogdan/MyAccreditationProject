@@ -22,6 +22,7 @@ public class CheckoutSteps extends BaseSteps{
 
     @Step
     public void verifyIfOrderIsSent(){
+        waitABit(2000);
         Assert.assertEquals("Thank you. Your order has been received.", checkoutPage.getWelcomeText2());
     }
     @Step

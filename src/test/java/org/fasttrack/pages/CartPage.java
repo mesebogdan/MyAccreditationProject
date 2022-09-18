@@ -1,5 +1,6 @@
 package org.fasttrack.pages;
 
+import net.serenitybdd.core.pages.ClearContents;
 import net.serenitybdd.core.pages.WebElementFacade;
 import org.openqa.selenium.support.FindBy;
 
@@ -23,6 +24,19 @@ public class CartPage extends BasePage {
     private WebElementFacade totalCartPrice;
     @FindBy(css = ".checkout-button")
     private WebElementFacade checkoutButton;
+    @FindBy(css = ".remove")
+    private WebElementFacade removeButton;
+    @FindBy(css = ".restore-item")
+    private WebElementFacade removedMessage;
+    @FindBy(css = ".restore-item")
+    private WebElementFacade undoButton;
+    @FindBy(css = "[Title='Qty']")
+    private WebElementFacade removeFirstItem;
+    @FindBy(css = "[value='Update cart']")
+    private WebElementFacade updateButton;
+    @FindBy(css = ".woocommerce-message")
+    private WebElementFacade updateCartMessage;
+
 
     public String getSuccessMessage(){
         return successMessage.getText();
@@ -48,6 +62,25 @@ public class CartPage extends BasePage {
     }
     public void clickCheckoutButton(){
         clickOn(checkoutButton);
+    }
+    public void clickRemoveButton(){
+        clickOn(removeButton);
+    }
+    public String getRemovedMessage(){
+        return removedMessage.getText();
+    }
+    public void clickUndoButton(){
+        clickOn(undoButton);
+    }
+    public void setRemoveFirstItem(String quantityNumber){
+        ClearContents.ofElement(removeFirstItem);
+        typeInto(removeFirstItem, quantityNumber);
+    }
+    public void clickUpdateButton(){
+        clickOn(updateButton);
+    }
+    public String getUpdateCartMessage(){
+        return updateCartMessage.getText();
     }
 
 
