@@ -7,7 +7,7 @@ public class ProductPage extends BasePage{
 
     @FindBy(css = ".single_add_to_cart_button")
     private WebElementFacade addToCartButton;
-    @FindBy(css = ".woocommerce-message :not(href)")
+    @FindBy(css = ".woocommerce-message")
     private WebElementFacade welcomeAddToCartText;
     @FindBy(css = ".star-5")
     private WebElementFacade fiveStarReview;
@@ -28,8 +28,8 @@ public class ProductPage extends BasePage{
     public void clickAddToCart(){
         clickOn(addToCartButton);
     }
-    public String getWelcomeAddToCartText(){
-        return welcomeAddToCartText.getText();
+    public void getWelcomeAddToCartText(){
+        element(welcomeAddToCartText).shouldContainText("has been added to your cart.");
     }
     public void clickFiveStarReview(){
         clickOn(fiveStarReview);

@@ -26,7 +26,7 @@ public class CartPage extends BasePage {
     private WebElementFacade checkoutButton;
     @FindBy(css = ".remove")
     private WebElementFacade removeButton;
-    @FindBy(css = ".restore-item")
+    @FindBy(css = ".woocommerce-message")
     private WebElementFacade removedMessage;
     @FindBy(css = ".restore-item")
     private WebElementFacade undoButton;
@@ -66,8 +66,8 @@ public class CartPage extends BasePage {
     public void clickRemoveButton(){
         clickOn(removeButton);
     }
-    public String getRemovedMessage(){
-        return removedMessage.getText();
+    public void getRemovedMessage(){
+        element(removedMessage).shouldContainText("removed");
     }
     public void clickUndoButton(){
         clickOn(undoButton);

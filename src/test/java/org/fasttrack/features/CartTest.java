@@ -11,14 +11,14 @@ public class CartTest extends BaseTest {
         searchSteps.searchForKeyword("hoodie");
         searchSteps.findProductWithNameInListAndOpen("new hoodie");
         cartSteps.addProductToCart();
-        cartSteps.checkSuccessMessage("new hoodie");
+        cartSteps.checkSuccessMessage();
     }
     @Test
     public void addToCartWithoutLogin(){
         searchSteps.searchForKeyword("hoodie");
         searchSteps.findProductWithNameInListAndOpen("new hoodie");
         cartSteps.addProductToCart();
-        cartSteps.checkSuccessMessage("new hoodie");
+        cartSteps.checkSuccessMessage();
 
     }
     @Test
@@ -35,14 +35,13 @@ public class CartTest extends BaseTest {
         cartSteps.checkTotalPrice();
     }
     @Test
-    public void removeItemFromCartThenCheckTotalTest(){
+    public void removeItemFromCartTest(){
         searchSteps.searchForKeyword("hoodie");
         searchSteps.findProductWithNameInListAndOpen("new hoodie");
         cartSteps.addProductToCart();
         checkoutSteps.clickCartButton();
         cartSteps.removeProductFromCart();
         cartSteps.checkRemoveMessage();
-        cartSteps.checkTotalPrice();
     }
     @Test
     public void removeItemFromCartThenUndoThenCheckTotalTest() {
@@ -61,6 +60,9 @@ public class CartTest extends BaseTest {
         loginSteps.doLogin(Constants.USER_EMAIL,Constants.USER_PASS);
         searchSteps.searchForKeyword("hoodie");
         searchSteps.findProductWithNameInListAndOpen("new hoodie");
+        cartSteps.addProductToCart();
+        searchSteps.searchForKeyword("shirt");
+        searchSteps.findProductWithNameInListAndOpen("T-SHIRT WITH LOGO");
         cartSteps.addProductToCart();
         checkoutSteps.clickCartButton();
         cartSteps.setFirstItemQuantity("7");
