@@ -39,6 +39,10 @@ public class LoginSteps extends BaseSteps {
     public void verifyUserNotLoggedIn(String possibleUserName){
         Assert.assertEquals("ERROR: The password you entered for the email address " + possibleUserName + " is incorrect. Lost your password?",loginPage.getErrorMessage());
     }
+    @Step
+    public void verifyLoginWithInvalidEmail(){
+        Assert.assertEquals("ERROR: Invalid email address. Lost your password?", loginPage.getEmailErrorMessage());
+    }
 
     @Step
     public void doLogin(String email, String pass){

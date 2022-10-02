@@ -33,6 +33,8 @@ public class CheckoutPage extends BasePage {
     private WebElementFacade emailField;
     @FindBy(css = ".woocommerce-error")
     private WebElementFacade errorPhoneAlertMessage;
+    @FindBy(css = ".woocommerce-error")
+    private WebElementFacade errorEmailAlertMessage;
 
     public void clickPlaceOrderButton(){
         clickOn(placeOrderButton);
@@ -72,5 +74,8 @@ public class CheckoutPage extends BasePage {
     }
     public String getPhoneAlertMessage(){
         return errorPhoneAlertMessage.getText();
+    }
+    public String getEmailAlertMessage(){
+        return errorEmailAlertMessage.getText();
     }
 }

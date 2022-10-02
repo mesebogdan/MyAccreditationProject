@@ -51,4 +51,22 @@ public class CheckoutTest extends BaseTest{
         checkoutSteps.verifyOrderIsNotSent();
 
     }
+    @Test
+    public void CheckoutTestWithoutLoginWithInvalidEmail(){
+        searchSteps.searchForKeyword("shirt");
+        searchSteps.findProductWithNameInListAndOpen("T-SHIRT WITH LOGO");
+        cartSteps.addProductToCart();
+        checkoutSteps.clickCartButton();
+        checkoutSteps.clickCheckoutButton();
+        checkoutSteps.setName("Mesesan");
+        checkoutSteps.setLastName("Bogdan");
+        checkoutSteps.setStreetAddressField("Transilvaniei");
+        checkoutSteps.setCityField("Cluj");
+        checkoutSteps.setPostcodeField("407055");
+        checkoutSteps.setPhoneField("0744558855");
+        checkoutSteps.setEmailField("mese");
+        checkoutSteps.clickPlaceOrderButton();
+        checkoutSteps.verifyOrderIsNotSentBecauseOfInvalidEmail();
+
+    }
 }

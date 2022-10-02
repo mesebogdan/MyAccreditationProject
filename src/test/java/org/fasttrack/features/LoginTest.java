@@ -25,6 +25,15 @@ public class LoginTest extends BaseTest{
         loginSteps.clickLogin();
         loginSteps.verifyUserNotLoggedIn("mesebogdan@yahoo.com");
     }
+    @Test
+    public void loginWithInvalidUseremailTest(){
+        loginSteps.navigateToLoginPage();
+        loginSteps.setUserEmail("wrongemail@yahoo.com");
+        loginSteps.setPassword(Constants.USER_PASS);
+        loginSteps.clickLogin();
+        loginSteps.verifyLoginWithInvalidEmail();
+
+    }
 
 
 }

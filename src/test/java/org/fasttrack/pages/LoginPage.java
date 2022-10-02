@@ -19,6 +19,9 @@ public class LoginPage extends BasePage {
     @FindBy(css = ".woocommerce-error")
     private WebElementFacade errorMessageElement;
 
+    @FindBy(css = ".woocommerce-error")
+    private WebElementFacade emailErrorMessage;
+
     public void setEmailField(String value) {
         typeInto(userField, value);
     }
@@ -33,6 +36,10 @@ public class LoginPage extends BasePage {
 
     public String getErrorMessage(){
         return errorMessageElement.getText();
+    }
+
+    public String getEmailErrorMessage(){
+        return emailErrorMessage.getText();
     }
 
 }

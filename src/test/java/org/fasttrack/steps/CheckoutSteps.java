@@ -65,4 +65,8 @@ public class CheckoutSteps extends BaseSteps{
     public void verifyOrderIsNotSent() {
         Assert.assertEquals("Billing Phone is not a valid phone number.", checkoutPage.getPhoneAlertMessage());
     }
+    @Step
+    public void verifyOrderIsNotSentBecauseOfInvalidEmail(){
+        Assert.assertEquals("Billing Email address is not a valid email address.", checkoutPage.getEmailAlertMessage());
+    }
 }

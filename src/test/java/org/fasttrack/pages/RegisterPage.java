@@ -34,6 +34,4 @@ public class RegisterPage extends BasePage{
     public String getSuccesfulRegister(){
         return succesfulRegister.getText();
     }
-
-
 }

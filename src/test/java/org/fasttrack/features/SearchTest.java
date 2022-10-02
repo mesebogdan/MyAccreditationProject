@@ -22,4 +22,11 @@ public class SearchTest extends BaseTest{
         searchSteps.findProductWithNameInListAndOpen("T-SHIRT WITH LOGO");
 
     }
+    @Test
+    public void searchForProductWithoutLogin(){
+        searchSteps.searchForKeyword("hoodie");
+        searchSteps.findProductWithNameInListAndOpen("new hoodie");
+
+
+    }
 }
