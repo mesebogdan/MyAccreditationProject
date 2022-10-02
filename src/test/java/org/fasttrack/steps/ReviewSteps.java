@@ -20,7 +20,7 @@ public class ReviewSteps extends BaseSteps{
     }
     @Step
     public void verifyReviewIsSent(){
-        Assert.assertEquals("Your review is awaiting approval", productPage.getSuccesSentReview());
+        Assert.assertEquals("Your review is awaiting approval", productPage.getSuccessSentReview());
     }
 
     @Step

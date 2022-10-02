@@ -40,7 +40,7 @@ public class ProductPage extends BasePage{
     public void clickSubmitButton(){
         clickOn(submitButton);
     }
-    public String getSuccesSentReview(){
+    public String getSuccessSentReview(){
         return succesSentReview.getText();
     }
     public void setReviewNameRequestField(String myName){

@@ -15,7 +15,7 @@ public class RegisterTest extends BaseTest{
         registerSteps.setEmail(randomEmail+"@yahoo.com");
         registerSteps.setPass(randomPass);
         registerSteps.clickRegisterButton();
-        registerSteps.verifySuccesfulRegisterMessage();
+        registerSteps.verifySuccessfulRegisterMessage();
 
     }
 
